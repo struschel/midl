@@ -1,0 +1,30 @@
+<%- include('shared/header'); -%>
+<div class="jumbotron jumbotron-fluid mb-0">
+    <div class="container">
+        <h1 class="display-4">Welkom bij Midl</h1>
+        <p class="lead">Hier is een overzicht van onze producten.</p>
+    </div>
+</div>
+<main class="bg-dark pt-4">
+    <div class="container">
+        <div class="row">
+            <% products.map(product => { %>
+            <div class="col">
+                <div class="card mb-4" style="width: 18rem;">
+                    <img src="<%= product.image %>" class="card-img-top" alt="<%= product.title %>">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= product.title %></h5>
+                        <% if (product.shortdescription && product.shortdescription.length > 100) { %>
+                        <p class="card-text text-truncate"><%= product.shortdescription %></p>
+                        <% } else { %>
+                        <p class="card-text"><%= product.shortdescription %></p>
+                        <% } %>
+                        <a href="/product/<%= product.id %>" class="btn btn-primary">Bekijk product details</a>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</main>
+<%- include('shared/footer'); -%>

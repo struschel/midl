@@ -1,0 +1,35 @@
+<%- include('shared/header'); -%>
+<main class="vh-100">
+    <div class="container pt-5 pb-5">
+        <div class="row">
+            <div class="col-md-5">
+                <img class="img-fluid" src="<%= product.image %>" alt="<%= product.shortdescription %>">
+            </div>
+            <div class="col-md-6">
+                <h3 class="d-inline"><%= product.title %> &ensp;</h3>
+                <p class="d-inline"><%= product.brand %></p>
+                <% const kilogramPrice = parseFloat(product.price) / parseFloat(product.weight); %>
+                <% if (kilogramPrice.toFixed(2) != 0.00) { %>
+                <p class="font-weight-bold text-muted mt-2">
+                    Prijs per KG € <%= kilogramPrice.toFixed(2) %> &emsp; <%= product.weight %>
+                </p>
+                <% } else { %>
+                <p class="font-weight-bold text-muted mt-2">
+                    <%= product.weight %>
+                </p>
+                <% } %>
+                <div class="row pt-4">
+                    <div class="col-md-3 align-self-center">
+                        <h1 class="font-weight-bold"><%= product.price %></h1>
+                    </div>
+                    <div class="col align-self-center">
+                        <a href="#" class="btn btn-primary">Toevoegen aan winkelmand</a>
+                    </div>
+                </div>
+                <hr>
+                <p><%= product.fulldescription %></p>
+            </div>
+        </div>
+    </div>
+</main>
+<%- include('shared/footer'); -%>
