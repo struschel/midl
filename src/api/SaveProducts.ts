@@ -3,6 +3,7 @@ import { xml2json } from 'xml-js';
 import { db } from '../config';
 import { Product } from '../entities/Product';
 import { ProductRepository } from '../repositories/ProductRepository';
+import { trim } from '../utilities/Utilities';
 
 export const saveProducts = async () => {
     const data = await fetch('http://supermaco.starwave.nl/api/products');
@@ -23,17 +24,18 @@ export const saveProducts = async () => {
         const val: any = value;
         const product = new Product(
             key,
-            val.EAN ? val.EAN.trim() : val.EAN,
-            val.Title ? val.Title.trim() : val.Title,
-            val.Brand ? val.Brand.trim() : val.Brand,
-            val.Shortdescription ? val.Shortdescription.trim() : val.Shortdescription,
-            val.Fulldescription ? val.Fulldescription.trim() : val.Fulldescription,
-            val.Image ? val.Image.trim() : val.Image,
-            val.Weight ? val.Weight.trim() : val.Weight,
-            val.Price ? val.Price.trim() : val.Price,
-            val.Category ? val.Category.trim() : val.Category,
-            val.Subcategory ? val.Subcategory.trim() : val.Subcategory,
-            val.Subsubcategory ? val.Subsubcategory.trim() : val.Subsubcategory);
+            trim(val.EAN),
+            trim(val.Title),
+            trim(val.Brand),
+            trim(val.Shortdescription),
+            trim(val.Fulldescription),
+            trim(val.Image),
+            trim(val.Weight),
+            trim(val.Price),
+            trim(val.Category),
+            trim(val.Subcategory),
+            trim(val.Subsubcategory)
+        );
         repository.createOrUpdate(product);
     }
 };
