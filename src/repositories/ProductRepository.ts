@@ -10,6 +10,13 @@ export class ProductRepository extends BaseRepository<Product> {
 
         return stmt.all();
     }
+
+    public search(condition: string): Product[] {
+        const query = `
+        SELECT *
+        FROM products WHERE title LIKE ?`;
+        const stmt = this.db.prepare(query);
+
+        return stmt.all('%' + condition + '%');
+    }
 }
-
-
