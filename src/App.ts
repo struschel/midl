@@ -2,6 +2,7 @@ import express from 'express';
 import { join } from 'path';
 import * as categoriesController from './controllers/Categories';
 import * as homeController from './controllers/Home';
+import * as searchController from './controllers/Search';
 
 class App {
     public app: express.Application;
@@ -22,6 +23,7 @@ class App {
         this.app.get('/categories', categoriesController.index);
         this.app.get('/categories/:name', categoriesController.category);
         this.app.get('/product/:id', categoriesController.product);
+        this.app.get('/search/', searchController.index);
     }
 }
 

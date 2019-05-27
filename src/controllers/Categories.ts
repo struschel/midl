@@ -25,11 +25,12 @@ export const category = (req: Request, res: Response) => {
 };
 
 export const product = (req: Request, res: Response) => {
-
+// tslint:disable-next-line: no-eval
     res.render('product', {
         title: 'Product',
         product: repository.findOne({ id: req.params.id }),
         id: req.params.id,
+        query: req.query.search,
     });
 
-}
+};

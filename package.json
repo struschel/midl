@@ -34,9 +34,11 @@
     "shelljs": "^0.8.3",
     "typescript": "^3.4.5",
     "winston": "^3.2.1",
-    "xml-js": "^1.6.11"
+    "xml-js": "^1.6.11",
+    "locus": "^2.0.0"
   },
   "devDependencies": {
+    "locus": "^2.0.0",
     "ts-node": "^8.1.0",
     "ts-node-dev": "^1.0.0-pre.39",
     "tslint": "^5.16.0",

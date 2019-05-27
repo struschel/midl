@@ -1,0 +1,25 @@
+<%- include('shared/header'); -%>
+<div class="jumbotron jumbotron-fluid mb-0">
+    <div class="container">
+        <h1 class="display-4">Welkom bij Midl</h1>
+        <p class="lead">Hier is een overzicht van onze producten.</p>
+    </div>
+</div>
+<main class="bg-dark pt-4">
+    <div class="container">
+        <div class="row">
+            <% products.map(p => { %>
+            <div class="col">
+                <div class="card mb-4" style="width: 18rem;">
+                    <img src="https://via.placeholder.com/450x450" class="card-img-top" alt="<%= p.category%>">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= p.category  %></h5>
+                        <a href="/categories/<%= p.category.replace(/ /g,'').replace(/,/g, '-').toLowerCase()%>" class="btn btn-primary">Bekijk product details</a>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</main>
+<%- include('shared/footer'); -%>
