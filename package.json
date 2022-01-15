@@ -33,7 +33,7 @@
     "locus": "^2.0.0",
     "node-cron": "^2.0.3",
     "node-fetch": "^2.6.0",
-    "shelljs": "^0.8.3",
+    "shelljs": "^0.8.5",
     "typescript": "^3.4.5",
     "winston": "^3.2.1",
     "xml-js": "^1.6.11"
